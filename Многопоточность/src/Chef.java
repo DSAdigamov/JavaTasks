@@ -9,7 +9,7 @@ public class Chef {
     public static void cook() throws InterruptedException {
         System.out.println("Шеф начал готовку.. Блюдо будет готово через " + COOKING_SPEED/1000 + " секунд");
 
-        Thread.sleep(COOKING_SPEED/1000);
+        Thread.sleep(COOKING_SPEED);
         Food.amount.set(Main.POT_SIZE);
 
         System.out.println("Шеф приготовил блюда!");

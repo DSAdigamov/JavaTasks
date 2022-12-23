@@ -16,7 +16,7 @@ public class Savage implements Runnable {
 
     public Savage() {
         if (semaphore == null) {
-            semaphore = new Semaphore(Main.SPACE_AROUND_POT, true);
+            semaphore = new Semaphore(Main.SPACE_AROUND_POT, false);
         }
 
         this.id = idCounter.getAndIncrement();
