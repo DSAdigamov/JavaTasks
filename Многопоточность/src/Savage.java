@@ -54,20 +54,19 @@ public class Savage implements Runnable {
 
             System.out.println("Дикарь(" + id + ") поел✅");
         } else {
-            wakeUpChef();
-
-            System.out.println("Дикарь(" + id + ") ждет пока шеф приготовить еду..");
-            Thread.sleep(Chef.COOKING_SPEED + 1000); //На секунду дольше чем готовит шеф;
-
+            tryToWakeUpChef();
             eat();
         }
 
     }
 
-    public void wakeUpChef() throws InterruptedException {
+    public void tryToWakeUpChef() throws InterruptedException {
         if (Chef.isSleeping.compareAndSet(true, false)) {
             System.out.println("Дикарь(" + id + ") будит шефа!");
             Chef.cook();
+        } else {
+            System.out.println("Дикарь(" + id + ") ждет пока шеф приготовить еду..");
+            Thread.sleep(Chef.COOKING_SPEED + 1000); //На секунду дольше чем готовит шеф;
         }
     }
 }

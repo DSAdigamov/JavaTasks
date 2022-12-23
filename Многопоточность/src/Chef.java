@@ -12,7 +12,7 @@ public class Chef {
         Thread.sleep(COOKING_SPEED);
         Food.amount.set(Main.POT_SIZE);
 
-        System.out.println("Шеф приготовил блюда!");
         isSleeping.compareAndSet(false, true);
+        System.out.println("Шеф приготовил блюда!");
     }
 }
